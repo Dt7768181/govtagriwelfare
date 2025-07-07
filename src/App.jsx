@@ -1,16 +1,14 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import LoginPage from './LoginPage'; 
 import './app.css'; 
-
+import { Link } from 'react-router-dom';
+import LoginPage from '/src/LoginPage';
 function App() {
   return (
     <div>
       <div className="header-container">
         <h2>GOV4FARMERS</h2>
-        <Link to={'/'}><button>Login</button></Link>
-        
-</div>
+        <Link to={'/LoginPage'}><button>Login</button></Link>
+      </div>
       <br></br>
       <div className="body-container">
         <h2>Available schemes</h2>
