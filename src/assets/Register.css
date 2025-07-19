@@ -1,0 +1,12 @@
+.Register-Page{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+.Register-Container{
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 10px; 
+    background-color: wheat;
+}

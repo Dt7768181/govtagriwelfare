@@ -1,0 +1,22 @@
+.Header-Page{
+    background-color: wheat;
+    font-weight: normal;
+}
+.Header-Container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.Auth-Container{
+    display: flex;
+    justify-content: space-between;
+}
+.Auth-Link{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+.Header-Link{
+    text-decoration: none;
+    color: black;
+}
