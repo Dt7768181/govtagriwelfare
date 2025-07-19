@@ -4,6 +4,7 @@ import { db } from '../main.jsx';
 import { useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+
 function Login({handleLogin}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +13,7 @@ function Login({handleLogin}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
- 
+
     console.log('Email:', email);
     console.log('Password:', password);
     const usersRef = collection(db, 'users');
@@ -24,11 +25,13 @@ function Login({handleLogin}) {
           console.log('Login failed: Incorrect email or password');
         } else {
           console.log('Login successful!');
-          handleLogin();
-          navigate('/home'); 
+          const userData = querySnapshot.docs[0].data(); // Get user data
+          handleLogin(userData.name); // Pass username to handleLogin
+          navigate('/');
         }
       })
-      .catch((error) => { console.error('Error during login:', error); }); };
+      .catch((error) => { console.error('Error during login:', error); });
+  };
 
   return (
     <div className='Login-Page'>

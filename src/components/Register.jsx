@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { db } from '../main'; // Import the initialized Firestore instance
+import { db } from '../main';
 import { collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import "../assets/Register.css";
@@ -21,7 +21,6 @@ function Register({ handleLogin }) {
       return;
     }
 
-    // Add user data to Firestore
     const addUser = async () => {
       try {
         const docRef = await addDoc(collection(db, "users"), {
@@ -31,8 +30,8 @@ function Register({ handleLogin }) {
           address: address,
         });
         console.log("Document written with ID: ", docRef.id);
-        handleLogin();
-        navigate('/'); // Redirect to Home page
+        handleLogin(name);
+        navigate('/');
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -43,27 +42,7 @@ function Register({ handleLogin }) {
   return (
     <div className='Register-Page'>
       <div className='Register-Container'>
-      <h2>Register</h2> 
-      <div>
-          <label htmlFor="name">Name:</label><br/>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="address">Address:</label><br/>
-          <input
-            type="text"
-            id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-        </div>
+      <h2>Register</h2>
         <div>
           <label htmlFor="email">Email:</label><br/>
           <input
@@ -94,7 +73,27 @@ function Register({ handleLogin }) {
             required
           />
         </div>
-        <button type="button" onClick={handleSubmit}>Register</button> 
+        <div>
+          <label htmlFor="name">Name:</label><br/>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="address">Address:</label><br/>
+          <input
+            type="text"
+            id="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+          />
+        </div>
+        <button type="button" onClick={handleSubmit}>Register</button>
       </div>
     </div>
   );

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { db } from '../main';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 function Admin_Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -14,12 +18,22 @@ function Admin_Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle login logic here (e.g., send data to backend)
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // Reset form
-    setEmail('');
-    setPassword('');
+
+    const adminUsersRef = collection(db, 'admin_users');
+    const q = query(adminUsersRef, where('email', '==', email), where('password', '==', password));
+
+    getDocs(q)
+      .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+          console.log('Admin Login failed: Incorrect email or password');
+          alert('Admin Login failed: Incorrect email or password');
+        } else {
+          console.log('Admin Login successful!');
+          alert('Admin Login successful!');
+          navigate('/admin_page'); 
+        }
+      })
+      .catch((error) => { console.error('Error during admin login:', error); });
   };
 
   return (
