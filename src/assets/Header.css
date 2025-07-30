@@ -1,0 +1,32 @@
+.Header-Page{
+    background-color: #16610E;
+    font-weight: normal;
+}
+.Header-Container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.Auth-Container{
+    display: flex;
+    justify-content: space-between;
+}
+.Auth-Link{
+    padding: 5px;
+    text-decoration: none;
+    color: #F97A00;
+}
+.Header-Section{
+    display: inline-flex;
+    align-items: center;
+}
+.Header-Link{
+    text-decoration: none;
+    color: #F97A00;
+    padding-left: 5px;
+}
+
+.Header-Image{
+    width: 50px;
+    height: 50px;
+}

@@ -1,0 +1,17 @@
+.Admin-Login-Page{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    padding: 40px;
+}
+.Admin-Login-Container{
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 10px; 
+    background-color: #FFF4A4;
+}
+.Admin-Login-Container button{
+    width:100%;
+    background-color: #16610E;
+    color:white;
+}
