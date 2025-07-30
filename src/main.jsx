@@ -8,12 +8,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDLsJ3oMGafDH8vZjuSHhXUJNXtdiEDUfo",
-  authDomain: "govtagriculture-afd92.firebaseapp.com",
-  projectId: "govtagriculture-afd92",
-  storageBucket: "govtagriculture-afd92.firebasestorage.app",
-  messagingSenderId: "98993513540",
-  appId: "1:98993513540:web:09a86580b31712b5828811"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
