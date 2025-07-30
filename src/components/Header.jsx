@@ -6,7 +6,6 @@ export default function Header({ isLoggedIn, isAdminLoggedIn, handleLogout }) {
         <div className="Header-Page">
             <div className="Header-Container">
                 <div className="Header-Section">
-                <img className="Header-Image" src="../assets/agriculture.png" alt="image"/>
                         <h1>GOV4FARMERS</h1>
                 </div>
                 <div className="Auth-Container">
